@@ -137,3 +137,14 @@ let y = document.getElementById('Y'); y.addEventListener("click", () => {jatek("
 let z = document.getElementById('Z'); z.addEventListener("click", () => {jatek("Z", arr[num_rnd])})
 
 let felad = document.getElementById('GIVEUP'); felad.addEventListener("click", () => {document.getElementById('eredmeny').textContent = arr[num_rnd]; fel_check = true; location.reload()})
+
+
+let theme_change = document.getElementById('theme'); theme_change.addEventListener("click", 
+
+    () => {
+        document.getElementById("eredmeny").style.color = "white";
+        document.getElementById("kijelzo").style.borderBottomColor = "white"
+        document.getElementById("kijelzo").style.borderTopColor = "white"
+        //document.getElementsByClassName("tgomb").style.borderColor = "white"
+    }
+)
