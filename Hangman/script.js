@@ -12,29 +12,28 @@ function jatek(betu, szo){
 
     document.getElementById('eredmeny').innerHTML = ""
 
-    talalt_szo = ""
+    talalt_szo = ""; let win_szo = ""
 
     for (let i = 0; i < talalt_tomb.length; i++){
-       talalt_szo += talalt_tomb[i] + " "
+       talalt_szo += talalt_tomb[i] + " "; win_szo += talalt_tomb[i]
     }
 
     document.getElementById('eredmeny').innerHTML = talalt_szo
 
-    if(db == 0){
-        ita++; console.log(ita)
-    }
+    if(db == 0){ ita++; console.log(ita) }
 
-    if(ita != 0){
-        document.getElementById('kep').setAttribute("src", pics[ita])
-    }
+    if(ita != 0 && ita < 12) { document.getElementById('kep').setAttribute("src", pics[ita]) }
     
     if(ita == 11)
     {
         alert("vesztettel")
+        document.getElementById('eredmeny').innerHTML = szo
     }
 
-
-
+    if(szo.toUpperCase() == win_szo.toUpperCase() && fel_check == false)
+    {
+        alert("gyoztel")
+    }
 }
 
 let ita = 0;
@@ -63,6 +62,8 @@ let talalt_tomb = []
 for(let i = 0; i < arr[num_rnd].length; i++){
     talalt_tomb.push("_")
 }
+
+let fel_check = false
 
 
 let a = document.getElementById('A'); a.addEventListener("click", () => {jatek("A", arr[num_rnd]);})
@@ -135,4 +136,4 @@ let y = document.getElementById('Y'); y.addEventListener("click", () => {jatek("
 
 let z = document.getElementById('Z'); z.addEventListener("click", () => {jatek("Z", arr[num_rnd])})
 
-let felad = document.getElementById('GIVEUP'); felad.addEventListener("click", () => {document.getElementById('eredmeny').textContent = "get gud"})
+let felad = document.getElementById('GIVEUP'); felad.addEventListener("click", () => {document.getElementById('eredmeny').textContent = arr[num_rnd]; fel_check = true; location.reload()})
